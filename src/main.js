@@ -64,7 +64,7 @@ function createCart(prod){
       discontDiv.append(discont)
         discont.innerText = `-${Math.floor(prod.discountPercentage)}%`
     mainContent.appendChild(price)
-      price.innerText = `${prod.price} ₽`
+      price.innerText = `${splitPrice(prod.price)} ₽`
     mainContent.appendChild(buttonBasket)
       buttonBasket.innerText = 'В корзину'
       buttonBasket.addEventListener( 'click', () => payProd(buttonBasket))
@@ -130,11 +130,33 @@ let countStartBasket = 0
 function payProd(btn){
 
   const priceText =  btn.previousSibling.innerText
-  const price = Number(priceText.substring(0, priceText.length - 2))
+  const price = priceText.substring(0, priceText.length - 2)
+  // .replace(/\s/g, "")
 
-  basketStartPrice = basketStartPrice + price
+  basketStartPrice = basketStartPrice + Number(price.replace(/\s/g, ""))
   basketPrice.innerText = `${basketStartPrice} ₽`
 
   countStartBasket += 1
   countBasket.innerText = countStartBasket
+}
+
+// пробел в цене между 1 000
+function splitPrice(prod){
+  const spPrice = String(prod).split('')
+  const newPrice = []
+  if( spPrice.length > 3){
+    for(let i = 0; i <= spPrice.length; i++){
+      newPrice.push(spPrice[i])
+      if(i === 0){
+        newPrice.push(' ')
+      }
+    }
+    return newPrice.join('')
+  }
+  else{
+    for(let i = 0; i <= spPrice.length; i++){
+      newPrice.push(spPrice[i])
+    }
+    return newPrice.join('')
+  }
 }
