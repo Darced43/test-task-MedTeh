@@ -17,12 +17,18 @@
 }
 
 @mixin text {
+    width: 179px;
     margin-bottom: 16px;
     font-family: 'Open Sans';
     font-weight: 500;
     font-size: 15px;
     line-height: 20px;
-    min-height: 160px;
+    margin: 0 auto 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
 }
 
 @mixin price {
@@ -55,11 +61,11 @@ body {
 }
 
 header {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .wrapper__header {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 1);
     max-width: 1264px;
     margin: 0 auto;
     padding: 10px 0 16px 0;
@@ -73,6 +79,7 @@ main {
 #main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 1px;
 }
 
 .basket {
@@ -84,19 +91,23 @@ main {
         background: #F5F7FA;
         display: flex;
         justify-content: space-between;
-        min-width: 180px;
+        min-width: 130px;
         cursor: pointer;
         text-decoration: none;
+        gap: 12px;
 
         &_prod {
-            padding: 6px 7px;
+            padding: 6px 4px;
             border-radius: 12px;
             background: #F44336;
             font-family: 'Inter';
             font-weight: 500;
             font-size: 11px;
             line-height: 12px;
-            color: white;
+            color: rgba(255, 255, 255, 1);
+            width: 16px;
+            height: 12px;
+            text-align: center;
 
         }
 
@@ -218,22 +229,12 @@ main {
             }
         }
     }
-
-    .content__description {
-        min-height: 100px;
-    }
-}
-
-@media(max-width: 850px) {
-    .content__description {
-        min-height: 150px;
-    }
 }
 
 @media(max-width: 678px) {
     .content__description {
         font-size: 12px;
-        min-height: 150px;
+        width: 155px;
     }
 }
 
@@ -249,7 +250,6 @@ main {
 
     .content__description {
         font-size: 12px;
-        min-height: 140px;
     }
 }
 
@@ -257,10 +257,6 @@ main {
     #main {
         grid-template-columns: 1fr;
         gap: 10px;
-    }
-
-    .content__description {
-        min-height: 90px;
     }
 }
 

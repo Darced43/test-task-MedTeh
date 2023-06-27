@@ -66,7 +66,7 @@ function createCart(prod){
     mainContent.appendChild(price)
       price.innerText = `${prod.price} ₽`
     mainContent.appendChild(buttonBasket)
-      buttonBasket.innerText = 'в корзину'
+      buttonBasket.innerText = 'В корзину'
       buttonBasket.addEventListener( 'click', () => payProd(buttonBasket))
 }
 
@@ -133,7 +133,7 @@ function payProd(btn){
   const price = Number(priceText.substring(0, priceText.length - 2))
 
   basketStartPrice = basketStartPrice + price
-  basketPrice.innerText = basketStartPrice
+  basketPrice.innerText = `${basketStartPrice} ₽`
 
   countStartBasket += 1
   countBasket.innerText = countStartBasket
