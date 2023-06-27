@@ -138,10 +138,3 @@ function payProd(btn){
   countStartBasket += 1
   countBasket.innerText = countStartBasket
 }
-
-
-// function calcTotalPrice(){
-//   const basketStartPrice = 0
-
-//   // basketPrice
-// }

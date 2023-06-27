@@ -58,6 +58,7 @@ main {
   font-weight: 500;
   font-size: 11px;
   line-height: 12px;
+  color: white;
 }
 .basket__btn_price {
   color: #051D36;
@@ -105,6 +106,7 @@ main {
   font-size: 14px;
   line-height: 20px;
   font-weight: 400;
+  color: #999;
 }
 
 .content__description {
@@ -126,6 +128,7 @@ main {
   font-weight: 400;
   text-decoration: line-through 1.5px #F44336;
   margin-right: 8px;
+  color: #808080;
 }
 .content__discontDiv_discont {
   padding: 4px 6px;
