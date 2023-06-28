@@ -131,10 +131,9 @@ function payProd(btn){
 
   const priceText =  btn.previousSibling.innerText
   const price = priceText.substring(0, priceText.length - 2)
-  // .replace(/\s/g, "")
 
   basketStartPrice = basketStartPrice + Number(price.replace(/\s/g, ""))
-  basketPrice.innerText = `${basketStartPrice} ₽`
+  basketPrice.innerText = `${splitPrice(basketStartPrice)} ₽`
 
   countStartBasket += 1
   countBasket.innerText = countStartBasket
@@ -144,12 +143,30 @@ function payProd(btn){
 function splitPrice(prod){
   const spPrice = String(prod).split('')
   const newPrice = []
-  if( spPrice.length > 3){
+  if( spPrice.length == 4){
     for(let i = 0; i <= spPrice.length; i++){
-      newPrice.push(spPrice[i])
-      if(i === 0){
+      if(i === 1){
         newPrice.push(' ')
       }
+      newPrice.push(spPrice[i])
+    }
+    return newPrice.join('')
+  }
+  else if( spPrice.length === 5){
+    for(let i = 0; i <= spPrice.length; i++){
+      if(i === 2){
+        newPrice.push(' ')
+      }
+      newPrice.push(spPrice[i])
+    }
+    return newPrice.join('')
+  }
+  else if( spPrice.length === 6){
+    for(let i = 0; i <= spPrice.length; i++){
+      if(i === 3){
+        newPrice.push(' ')
+      }
+      newPrice.push(spPrice[i])
     }
     return newPrice.join('')
   }
